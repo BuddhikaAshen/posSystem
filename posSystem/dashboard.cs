@@ -48,13 +48,13 @@ namespace posSystem
         private void reg_Click(object sender, EventArgs e)
         {
             Register reg = new Register();
-            //this.Hide();
+            this.Hide();
             reg.Show();
         }
         private void item_Click(object sender, EventArgs e)
         {
             Item_Register reg = new Item_Register();
-            //this.Hide();
+            this.Hide();
             reg.Show();
 
         }
