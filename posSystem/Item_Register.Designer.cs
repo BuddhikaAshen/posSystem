@@ -42,12 +42,15 @@
             this.txtiret = new System.Windows.Forms.TextBox();
             this.cbcat = new System.Windows.Forms.ComboBox();
             this.btniadd = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(193, 38);
+            this.label1.Location = new System.Drawing.Point(39, 178);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 16);
             this.label1.TabIndex = 0;
@@ -55,15 +58,15 @@
             // 
             // txtaddcat
             // 
-            this.txtaddcat.Location = new System.Drawing.Point(296, 35);
+            this.txtaddcat.Location = new System.Drawing.Point(142, 175);
             this.txtaddcat.Name = "txtaddcat";
             this.txtaddcat.Size = new System.Drawing.Size(100, 22);
-            this.txtaddcat.TabIndex = 1;
+            this.txtaddcat.TabIndex = 6;
             // 
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(163, 160);
+            this.lblname.Location = new System.Drawing.Point(427, 134);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(44, 16);
             this.lblname.TabIndex = 0;
@@ -71,17 +74,17 @@
             // 
             // txtiname
             // 
-            this.txtiname.Location = new System.Drawing.Point(255, 157);
+            this.txtiname.Location = new System.Drawing.Point(519, 131);
             this.txtiname.Name = "txtiname";
             this.txtiname.Size = new System.Drawing.Size(100, 22);
-            this.txtiname.TabIndex = 1;
+            this.txtiname.TabIndex = 0;
             // 
             // btnaddcat
             // 
-            this.btnaddcat.Location = new System.Drawing.Point(240, 76);
+            this.btnaddcat.Location = new System.Drawing.Point(86, 216);
             this.btnaddcat.Name = "btnaddcat";
             this.btnaddcat.Size = new System.Drawing.Size(136, 27);
-            this.btnaddcat.TabIndex = 2;
+            this.btnaddcat.TabIndex = 7;
             this.btnaddcat.Text = "Add Category";
             this.btnaddcat.UseVisualStyleBackColor = true;
             this.btnaddcat.Click += new System.EventHandler(this.btnaddcat_Click);
@@ -89,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(163, 188);
+            this.label3.Location = new System.Drawing.Point(427, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 16);
             this.label3.TabIndex = 0;
@@ -97,7 +100,7 @@
             // 
             // txticode
             // 
-            this.txticode.Location = new System.Drawing.Point(255, 185);
+            this.txticode.Location = new System.Drawing.Point(519, 159);
             this.txticode.Name = "txticode";
             this.txticode.Size = new System.Drawing.Size(100, 22);
             this.txticode.TabIndex = 1;
@@ -105,7 +108,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(163, 216);
+            this.label4.Location = new System.Drawing.Point(427, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 0;
@@ -113,15 +116,15 @@
             // 
             // txticost
             // 
-            this.txticost.Location = new System.Drawing.Point(255, 213);
+            this.txticost.Location = new System.Drawing.Point(519, 187);
             this.txticost.Name = "txticost";
             this.txticost.Size = new System.Drawing.Size(100, 22);
-            this.txticost.TabIndex = 1;
+            this.txticost.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(163, 248);
+            this.label5.Location = new System.Drawing.Point(427, 222);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 0;
@@ -130,7 +133,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(163, 280);
+            this.label2.Location = new System.Drawing.Point(427, 254);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 16);
             this.label2.TabIndex = 0;
@@ -138,34 +141,67 @@
             // 
             // txtiret
             // 
-            this.txtiret.Location = new System.Drawing.Point(255, 245);
+            this.txtiret.Location = new System.Drawing.Point(519, 219);
             this.txtiret.Name = "txtiret";
             this.txtiret.Size = new System.Drawing.Size(100, 22);
-            this.txtiret.TabIndex = 1;
+            this.txtiret.TabIndex = 3;
             // 
             // cbcat
             // 
             this.cbcat.FormattingEnabled = true;
-            this.cbcat.Location = new System.Drawing.Point(255, 277);
+            this.cbcat.Location = new System.Drawing.Point(519, 251);
             this.cbcat.Name = "cbcat";
             this.cbcat.Size = new System.Drawing.Size(100, 24);
-            this.cbcat.TabIndex = 3;
+            this.cbcat.TabIndex = 4;
             // 
             // btniadd
             // 
-            this.btniadd.Location = new System.Drawing.Point(206, 325);
+            this.btniadd.Location = new System.Drawing.Point(470, 299);
             this.btniadd.Name = "btniadd";
             this.btniadd.Size = new System.Drawing.Size(132, 39);
-            this.btniadd.TabIndex = 4;
+            this.btniadd.TabIndex = 5;
             this.btniadd.Text = "Submit";
             this.btniadd.UseVisualStyleBackColor = true;
             this.btniadd.Click += new System.EventHandler(this.btniadd_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(671, 390);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 35);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "<- Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(35, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(225, 39);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Add Category";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(423, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(170, 39);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Add Items";
             // 
             // Item_Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btniadd);
             this.Controls.Add(this.cbcat);
             this.Controls.Add(this.btnaddcat);
@@ -204,5 +240,8 @@
         private System.Windows.Forms.TextBox txtiret;
         private System.Windows.Forms.ComboBox cbcat;
         private System.Windows.Forms.Button btniadd;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

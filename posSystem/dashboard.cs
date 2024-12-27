@@ -18,11 +18,13 @@ namespace posSystem
         public dashboard()
         {
             InitializeComponent();
-            lblout.Text = authentication.UserRole;
-            if(authentication.UserRole != "admin")
+            lblout.Text = $"Username: {authentication.UserName}\n\nRole: {authentication.UserRole}";
+            if (authentication.UserRole != "admin")
             {
-                lblhide.Visible = false;
+                reg.Visible = false;
+                profit.Visible = false;
             }
+
         }
 
         private void check_Click(object sender, EventArgs e)
@@ -61,18 +63,21 @@ namespace posSystem
         private void stock_Click(object sender, EventArgs e)
         {
             stock stock = new stock();
+            this.Hide();
             stock.Show();
             
         }
         private void sale_Click(object sender, EventArgs e)
         {
             sale sale = new sale();
+            this.Hide();
             sale.Show();
 
         }
         private void profit_Click(object sender, EventArgs e)
         {
             report report = new report();
+            this.Hide();
             report.Show();
 
         }
@@ -81,6 +86,18 @@ namespace posSystem
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btlout_Click(object sender, EventArgs e)
+        {
+            login login = new login();
+            this.Close();
+            login.Show();
         }
     }
 }

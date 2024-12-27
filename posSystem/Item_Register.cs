@@ -110,5 +110,12 @@ namespace posSystem
                 conn.Close();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dashboard d = new dashboard();
+            this.Close();
+            d.Show();
+        }
     }
 }

@@ -51,7 +51,7 @@ namespace posSystem
                 if(reader.HasRows && reader.Read())
                 {
                     role = reader.GetString("role");
-                    MessageBox.Show($"User Role : {role}");
+                    
                     authentication.IsLoggedIn = true;
                     authentication.UserRole = role;
                     authentication.UserName = name;
