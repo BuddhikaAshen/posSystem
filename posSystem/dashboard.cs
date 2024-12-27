@@ -99,5 +99,10 @@ namespace posSystem
             this.Close();
             login.Show();
         }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

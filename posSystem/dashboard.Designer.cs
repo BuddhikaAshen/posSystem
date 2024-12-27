@@ -36,11 +36,12 @@
             this.profit = new System.Windows.Forms.Button();
             this.sale = new System.Windows.Forms.Button();
             this.btlout = new System.Windows.Forms.Button();
+            this.btnexit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // check
             // 
-            this.check.Location = new System.Drawing.Point(621, 397);
+            this.check.Location = new System.Drawing.Point(551, 396);
             this.check.Name = "check";
             this.check.Size = new System.Drawing.Size(75, 40);
             this.check.TabIndex = 1;
@@ -108,7 +109,7 @@
             // 
             // btlout
             // 
-            this.btlout.Location = new System.Drawing.Point(713, 397);
+            this.btlout.Location = new System.Drawing.Point(632, 396);
             this.btlout.Name = "btlout";
             this.btlout.Size = new System.Drawing.Size(75, 39);
             this.btlout.TabIndex = 3;
@@ -116,11 +117,22 @@
             this.btlout.UseVisualStyleBackColor = true;
             this.btlout.Click += new System.EventHandler(this.btlout_Click);
             // 
+            // btnexit
+            // 
+            this.btnexit.Location = new System.Drawing.Point(713, 396);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(75, 39);
+            this.btnexit.TabIndex = 4;
+            this.btnexit.Text = "Exit";
+            this.btnexit.UseVisualStyleBackColor = true;
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnexit);
             this.Controls.Add(this.btlout);
             this.Controls.Add(this.lblout);
             this.Controls.Add(this.sale);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Button profit;
         private System.Windows.Forms.Button sale;
         private System.Windows.Forms.Button btlout;
+        private System.Windows.Forms.Button btnexit;
     }
 }
