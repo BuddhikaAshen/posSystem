@@ -111,6 +111,7 @@
             this.txtcost.ReadOnly = true;
             this.txtcost.Size = new System.Drawing.Size(53, 22);
             this.txtcost.TabIndex = 0;
+            this.txtcost.Visible = false;
             // 
             // txtid
             // 
@@ -119,6 +120,7 @@
             this.txtid.ReadOnly = true;
             this.txtid.Size = new System.Drawing.Size(47, 22);
             this.txtid.TabIndex = 0;
+            this.txtid.Visible = false;
             // 
             // dataGridView1
             // 

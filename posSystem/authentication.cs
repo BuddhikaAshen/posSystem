@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace posSystem
 {
@@ -13,10 +14,10 @@ namespace posSystem
         public static string UserName { get; set; }
         public static string UserRole { get; set; }
 
-        public static MySqlConnection connect()
+        public static SqlConnection connect()
         {
-            String connString = "server=127.0.0.1; user=root; database=pos; password=";
-            return new MySqlConnection(connString);
+            string connString = "Data Source=(local);Initial Catalog=pos;Integrated Security=True;Encrypt=False";
+            return new SqlConnection(connString);
         }
     }
 

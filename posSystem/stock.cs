@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace posSystem
@@ -21,7 +22,7 @@ namespace posSystem
 
         private void btnsadd_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = authentication.connect();
+            SqlConnection conn = authentication.connect();
             int iid = Convert.ToInt32(txtsid.Text);
             double cost = Convert.ToDouble(txtscost.Text);
             double ret = Convert.ToDouble(txtsret.Text);
@@ -30,8 +31,8 @@ namespace posSystem
             try
             {
                 conn.Open();
-                String query = $"INSERT INTO stock(iid,cost,retail,qtty) VALUES({iid},{cost},{ret},{qtty})";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                String query = $"INSERT INTO [stock](iid,cost,retail,qtty) VALUES({iid},{cost},{ret},{qtty})";
+                SqlCommand cmd = new SqlCommand(query, conn);
                 int r = cmd.ExecuteNonQuery();
                 if(r==1)
                 {
@@ -76,19 +77,19 @@ namespace posSystem
         private void FetchItemName(String c)
         {
             String code = c;
-            String q = $"SELECT * FROM item WHERE code='{code}'";
-            MySqlConnection conn = authentication.connect();
+            String q = $"SELECT * FROM [item] WHERE code='{code}'";
+            SqlConnection conn = authentication.connect();
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(q, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                SqlCommand cmd = new SqlCommand(q, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows && reader.Read())
                 {
                     
                     //MessageBox.Show(reader.GetString("name"));
-                    txtsname.Text = reader.GetString("name");
-                    txtsid.Text = Convert.ToString(reader.GetInt32("id"));
+                    txtsname.Text = reader["name"].ToString();
+                    txtsid.Text = Convert.ToString(reader["id"]);
                 }
             }
             catch (Exception ex)

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace posSystem
 {
@@ -23,14 +24,14 @@ namespace posSystem
             String uname = txtuname.Text;
             String pass = txtpass.Text;
 
-            String connString = "server=127.0.0.1; user=root; database=pos; password=";
-            MySqlConnection conn = new MySqlConnection(connString);
+            string connString = "Data Source=(local);Initial Catalog=pos;Integrated Security=True;Encrypt=False";
+            SqlConnection conn = new SqlConnection(connString);
 
             try
             {
                 conn.Open();
-                String query = $"INSERT INTO user(name,password,role) VALUES('{uname}','{pass}','user')";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                String query = $"INSERT INTO [user](name,password,role) VALUES('{uname}','{pass}','user')";
+                SqlCommand cmd = new SqlCommand(query, conn);
                 int r = cmd.ExecuteNonQuery();
                 if (r == 1) MessageBox.Show("User registered Successfully");
             } catch (Exception ex)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,8 +30,8 @@ namespace posSystem
 
         private void check_Click(object sender, EventArgs e)
         {
-            String connString = "server=127.0.0.1; user=root; database=pos; password=";
-            MySqlConnection conn = new MySqlConnection(connString);
+            string connString = "Data Source=(local);Initial Catalog=pos;Integrated Security=True;Encrypt=False";
+            SqlConnection conn = new SqlConnection(connString);
             try
             {
                 conn.Open();

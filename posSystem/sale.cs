@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Data.SqlClient;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace posSystem
@@ -42,21 +43,21 @@ namespace posSystem
         private void FetchItemName(String c)
         {
             String code = c;
-            String q = $"SELECT i.name,i.id,s.cost,s.retail FROM item AS i INNER JOIN stock AS s ON i.id=s.iid WHERE (i.code = '{code}' AND s.qtty > 0)";
-            MySqlConnection conn = authentication.connect();
+            String q = $"SELECT i.name,i.id,s.cost,s.retail FROM [item] AS i INNER JOIN stock AS s ON i.id=s.iid WHERE (i.code = '{code}' AND s.qtty > 0)";
+            SqlConnection conn = authentication.connect();
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(q, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                SqlCommand cmd = new SqlCommand(q, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows && reader.Read())
                 {
 
                     //MessageBox.Show(reader.GetString("name"));
-                    txtname.Text = reader.GetString("name");
-                    txtid.Text = Convert.ToString(reader.GetInt32("id"));
-                    txtprice.Text = Convert.ToString(reader.GetDouble("retail"));
-                    txtcost.Text = Convert.ToString(reader.GetDouble("cost"));
+                    txtname.Text = reader["name"].ToString();
+                    txtid.Text = Convert.ToString(reader["id"]);
+                    txtprice.Text = Convert.ToString(reader["retail"]);
+                    txtcost.Text = Convert.ToString(reader["cost"]);
                 }
             }
             catch (Exception ex)
@@ -164,7 +165,7 @@ namespace posSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = authentication.connect();
+            SqlConnection conn = authentication.connect();
             double profit = 0;
             double totalbill = 0;
             foreach (var item in cart)
@@ -172,11 +173,11 @@ namespace posSystem
 
                 totalbill += item.retail * (double)item.Quantity;
                 profit += (item.retail-item.cost)*(double)item.Quantity;
-                String query = $"UPDATE stock set qtty = qtty-{item.Quantity} WHERE(iid={item.id} AND qtty>0)";
+                String query = $"UPDATE [stock] set qtty = qtty-{item.Quantity} WHERE(iid={item.id} AND qtty>0)";
                 try
                 {
                     conn.Open();
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    SqlCommand cmd = new SqlCommand(query, conn);
                     int r = cmd.ExecuteNonQuery();
 
                 }
@@ -189,11 +190,11 @@ namespace posSystem
                 }             
 
             }
-            String query2 = $"INSERT INTO bill(total,profit,date) VALUES({totalbill},{profit},CURDATE())";
+            String query2 = $"INSERT INTO [bill](total,profit,date) VALUES({totalbill},{profit},CAST(GETDATE() AS DATE))";
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query2, conn);
+                SqlCommand cmd = new SqlCommand(query2, conn);
                 int r = cmd.ExecuteNonQuery();
 
 
@@ -212,6 +213,7 @@ namespace posSystem
 
             cart.Clear();
             BindCartToGrid();
+            lblTotalAmount.Text = $"Total Amount: {0:C2}";
             MessageBox.Show("Thanx for comming!");
         }
 

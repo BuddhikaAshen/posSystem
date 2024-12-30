@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace posSystem
 {
@@ -22,14 +23,14 @@ namespace posSystem
         private void btnaddcat_Click(object sender, EventArgs e)
         {
             //String connString = "server=127.0.0.1; user=root; database=pos; password=";
-            MySqlConnection conn = authentication.connect();
+            SqlConnection conn = authentication.connect();
 
             try
             {
                 String cat = txtaddcat.Text;
-                String query = $"INSERT INTO category(category) VALUES('{cat}')";
+                String query = $"INSERT INTO [category](category) VALUES('{cat}')";
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand(query, conn);
                 int r = cmd.ExecuteNonQuery();
                 cbcat.Items.Clear();
                 loaddropdown();
@@ -53,17 +54,17 @@ namespace posSystem
         }
         public void loaddropdown()
         {
-            MySqlConnection conn = authentication.connect();
+            SqlConnection conn = authentication.connect();
 
             try
             {
                 conn.Open();
-                String query = $"SELECT * FROM category";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                String query = $"SELECT * FROM [category]";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    String cat = reader.GetString("category");
+                    String cat = reader["category"].ToString();
                     cbcat.Items.Add(cat);
                 }
             }catch (Exception ex)
@@ -84,12 +85,12 @@ namespace posSystem
             double cost = Convert.ToDouble(txticost.Text);
             double retail = Convert.ToDouble(txticost.Text);
 
-            MySqlConnection conn = authentication.connect();
+            SqlConnection conn = authentication.connect();
             try
             {
                 conn.Open();
-                String query = $"INSERT INTO item(code,name,category,cost,retail) VALUES('{code}','{name}','{cat}',{cost},{retail})";
-                MySqlCommand cmd = new MySqlCommand(query , conn);
+                String query = $"INSERT INTO [item](code,name,category,cost,retail) VALUES('{code}','{name}','{cat}',{cost},{retail})";
+                SqlCommand cmd = new SqlCommand(query , conn);
                 int r = cmd.ExecuteNonQuery();
                 if (r == 1)
                 {

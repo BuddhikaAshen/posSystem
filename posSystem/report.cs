@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace posSystem
 {
@@ -20,19 +21,19 @@ namespace posSystem
 
         private void report_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = authentication.connect();
-            String query = "SELECT * FROM bill WHERE date=CURDATE()";
+            SqlConnection conn = authentication.connect();
+            String query = "SELECT * FROM [bill] WHERE date=CAST(GETDATE() AS DATE)";
             double tot = 0;
             double prof = 0;
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    tot += reader.GetDouble("total");
-                    prof += reader.GetDouble("profit");
+                    tot += Convert.ToDouble(reader["total"]);
+                    prof += Convert.ToDouble(reader["profit"]);
                 }
                 lbloutinc.Text = $"Today income : Rs.{Convert.ToString(tot)}";
                 lbloutprof.Text = $"Today profit : Rs.{Convert.ToString(prof)}";
@@ -58,25 +59,25 @@ namespace posSystem
         {
             String datef = dateTimePicker2.Text;
             String datet = dateTimePicker1.Text;
-            String query = $"SELECT * FROM bill WHERE date BETWEEN '{datef}' AND '{datet}'";
+            String query = $"SELECT * FROM [bill] WHERE date BETWEEN '{datef}' AND '{datet}'";
             //String query = "SELECT * FROM bill WHERE date BETWEEN '2024-12-25' AND '2024-12-26'";
-            MySqlConnection conn = authentication.connect();
+            SqlConnection conn = authentication.connect();
             double t = 0;
             double p = 0;
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
 
-                MySqlDataReader reader = cmd.ExecuteReader();
+                SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    t += reader.GetDouble("total");
-                    p += reader.GetDouble("profit");
+                    t += Convert.ToDouble(reader["total"]); 
+                    p += Convert.ToDouble(reader["profit"]);
                 }
 
                 lblincnew.Text = $"Income: {Convert.ToString(t)}";
