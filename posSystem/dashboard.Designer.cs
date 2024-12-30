@@ -54,7 +54,7 @@
             this.lblout.AutoSize = true;
             this.lblout.Location = new System.Drawing.Point(648, 20);
             this.lblout.Name = "lblout";
-            this.lblout.Size = new System.Drawing.Size(0, 16);
+            this.lblout.Size = new System.Drawing.Size(0, 20);
             this.lblout.TabIndex = 2;
             // 
             // reg
@@ -71,7 +71,7 @@
             // 
             this.item.Location = new System.Drawing.Point(370, 147);
             this.item.Name = "item";
-            this.item.Size = new System.Drawing.Size(75, 40);
+            this.item.Size = new System.Drawing.Size(84, 50);
             this.item.TabIndex = 0;
             this.item.Text = "Add Items";
             this.item.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             // 
             this.stock.Location = new System.Drawing.Point(470, 147);
             this.stock.Name = "stock";
-            this.stock.Size = new System.Drawing.Size(75, 40);
+            this.stock.Size = new System.Drawing.Size(84, 50);
             this.stock.TabIndex = 0;
             this.stock.Text = "Stock";
             this.stock.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             // 
             this.sale.Location = new System.Drawing.Point(277, 147);
             this.sale.Name = "sale";
-            this.sale.Size = new System.Drawing.Size(75, 40);
+            this.sale.Size = new System.Drawing.Size(84, 50);
             this.sale.TabIndex = 0;
             this.sale.Text = "Sale";
             this.sale.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@
             // 
             // dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnexit);
@@ -141,6 +141,7 @@
             this.Controls.Add(this.item);
             this.Controls.Add(this.reg);
             this.Controls.Add(this.check);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "dashboard";
             this.Text = "dashboard";
             this.Load += new System.EventHandler(this.dashboard_Load);
