@@ -214,6 +214,13 @@ namespace posSystem
             BindCartToGrid();
             MessageBox.Show("Thanx for comming!");
         }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            dashboard d = new dashboard();
+            this.Close();
+            d.Show();
+        }
     }
     public class CartItem
     {

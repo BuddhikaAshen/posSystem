@@ -42,6 +42,8 @@
             this.txtname = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.btnback = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,11 +158,32 @@
             this.lblTotalAmount.TabIndex = 5;
             this.lblTotalAmount.Text = "Total: ";
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(703, 22);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(76, 27);
+            this.btnback.TabIndex = 6;
+            this.btnback.Text = "Home";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(757, 414);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(8, 9);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // sale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.lblTotalAmount);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dataGridView1);
@@ -196,5 +219,7 @@
         private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblTotalAmount;
+        private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.Button button2;
     }
 }
