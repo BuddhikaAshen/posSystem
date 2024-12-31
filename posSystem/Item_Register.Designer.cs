@@ -42,9 +42,11 @@
             this.txtiret = new System.Windows.Forms.TextBox();
             this.cbcat = new System.Windows.Forms.ComboBox();
             this.btniadd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbsup = new System.Windows.Forms.ComboBox();
+            this.btnback = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -156,23 +158,13 @@
             // 
             // btniadd
             // 
-            this.btniadd.Location = new System.Drawing.Point(470, 299);
+            this.btniadd.Location = new System.Drawing.Point(473, 330);
             this.btniadd.Name = "btniadd";
             this.btniadd.Size = new System.Drawing.Size(132, 39);
             this.btniadd.TabIndex = 5;
             this.btniadd.Text = "Submit";
             this.btniadd.UseVisualStyleBackColor = true;
             this.btniadd.Click += new System.EventHandler(this.btniadd_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(671, 390);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 35);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "<- Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -194,19 +186,48 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Add Items";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(427, 286);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 16);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Supplier";
+            // 
+            // cbsup
+            // 
+            this.cbsup.FormattingEnabled = true;
+            this.cbsup.Location = new System.Drawing.Point(519, 283);
+            this.cbsup.Name = "cbsup";
+            this.cbsup.Size = new System.Drawing.Size(100, 24);
+            this.cbsup.TabIndex = 4;
+            // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(667, 409);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(94, 29);
+            this.btnback.TabIndex = 8;
+            this.btnback.Text = "<- Back";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
             // Item_Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btniadd);
+            this.Controls.Add(this.cbsup);
             this.Controls.Add(this.cbcat);
             this.Controls.Add(this.btnaddcat);
             this.Controls.Add(this.txtiret);
             this.Controls.Add(this.txticost);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -240,8 +261,10 @@
         private System.Windows.Forms.TextBox txtiret;
         private System.Windows.Forms.ComboBox cbcat;
         private System.Windows.Forms.Button btniadd;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbsup;
+        private System.Windows.Forms.Button btnback;
     }
 }

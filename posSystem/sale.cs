@@ -166,13 +166,14 @@ namespace posSystem
         private void btnSave_Click(object sender, EventArgs e)
         {
             SqlConnection conn = authentication.connect();
+            String emp = authentication.UserName;
             double profit = 0;
             double totalbill = 0;
             foreach (var item in cart)
             {
 
                 totalbill += item.retail * (double)item.Quantity;
-                profit += (item.retail-item.cost)*(double)item.Quantity;
+                profit += (item.cost)*(double)item.Quantity;
                 String query = $"UPDATE [stock] set qtty = qtty-{item.Quantity} WHERE(iid={item.id} AND qtty>0)";
                 try
                 {
@@ -190,7 +191,35 @@ namespace posSystem
                 }             
 
             }
-            String query2 = $"INSERT INTO [bill](total,profit,date) VALUES({totalbill},{profit},CAST(GETDATE() AS DATE))";
+            String q = $"select * from [discount] where code='{txtdiscode.Text}'";
+            double dis = 0;
+            int disid = 0;
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(q, conn);
+                SqlDataReader r = cmd.ExecuteReader();
+                while (r.Read())
+                {
+                    dis = Convert.ToDouble(r["per"]);
+                    disid = Convert.ToInt32(r["id"]);
+                }
+                r.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            dis *= totalbill;
+            totalbill -= dis;
+            profit = totalbill - profit;
+            String query2 = $"INSERT INTO [bill](total,profit,date,cid,disid,emp) VALUES({totalbill},{profit},CAST(GETDATE() AS DATE),(select cid from [customer] where tp='{txtcmob.Text}'),{disid},'{emp}')";
             try
             {
                 conn.Open();
@@ -214,7 +243,9 @@ namespace posSystem
             cart.Clear();
             BindCartToGrid();
             lblTotalAmount.Text = $"Total Amount: {0:C2}";
-            MessageBox.Show("Thanx for comming!");
+            txtcmob.Text = "NaN";
+            txtdiscode.Text = "NaN";
+            MessageBox.Show($"Thanx for comming!\nYour Discount: {dis}");
         }
 
         private void btnback_Click(object sender, EventArgs e)

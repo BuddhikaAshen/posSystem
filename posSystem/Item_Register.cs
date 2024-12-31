@@ -67,7 +67,22 @@ namespace posSystem
                     String cat = reader["category"].ToString();
                     cbcat.Items.Add(cat);
                 }
-            }catch (Exception ex)
+                reader.Close();
+
+                String query2 = $"SELECT * FROM [supplier]";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+                while (reader2.Read())
+                {
+                    String sup = reader2["name"].ToString();
+                    cbsup.Items.Add(sup);
+                }
+                reader2.Close();
+
+
+
+            }
+            catch (Exception ex)
             {
 
             MessageBox.Show(ex.Message); 
@@ -82,6 +97,7 @@ namespace posSystem
             String name = txtiname.Text;
             String code = txticode.Text;
             String cat = cbcat.Text;
+            String sup = cbsup.Text;
             double cost = Convert.ToDouble(txticost.Text);
             double retail = Convert.ToDouble(txticost.Text);
 
@@ -89,7 +105,8 @@ namespace posSystem
             try
             {
                 conn.Open();
-                String query = $"INSERT INTO [item](code,name,category,cost,retail) VALUES('{code}','{name}','{cat}',{cost},{retail})";
+                //String query = $"INSERT INTO [item](code,name,category,cost,retail,sid) VALUES('{code}','{name}','{cat}',{cost},{retail},(select id from [supplier] where name={sup}))";
+                String query = $"INSERT INTO [item](code, name, category, cost, retail, sid) VALUES ('{code}', '{name}', '{cat}', {cost}, {retail}, (SELECT id FROM [supplier] WHERE name = '{sup}'))";
                 SqlCommand cmd = new SqlCommand(query , conn);
                 int r = cmd.ExecuteNonQuery();
                 if (r == 1)
@@ -117,6 +134,13 @@ namespace posSystem
             dashboard d = new dashboard();
             this.Close();
             d.Show();
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            dashboard dashboard = new dashboard();
+            dashboard.Show();
+            this.Close();
         }
     }
 }

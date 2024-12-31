@@ -24,6 +24,11 @@ namespace posSystem
             {
                 reg.Visible = false;
                 profit.Visible = false;
+                btnsup.Visible = false;
+                item.Visible = false;
+                stock.Visible = false;
+                
+
             }
 
         }
@@ -104,6 +109,29 @@ namespace posSystem
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            customer c = new customer();
+            c.Show();
+            
+        }
+
+        private void btnsup_Click(object sender, EventArgs e)
+        {
+            supplier supplier = new supplier();
+            this.Hide();
+            supplier.Show();
+        }
+
+        private void btndis_Click(object sender, EventArgs e)
+        {
+            discount discount = new discount(); 
+            discount.Show();
+            this.Hide();
+
         }
     }
 }

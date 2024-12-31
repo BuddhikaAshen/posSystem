@@ -33,7 +33,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtqtty = new System.Windows.Forms.TextBox();
             this.txtcode = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtcost = new System.Windows.Forms.TextBox();
@@ -44,6 +43,11 @@
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnback = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtcmob = new System.Windows.Forms.TextBox();
+            this.txtdiscode = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,15 +81,6 @@
             this.txtcode.TabIndex = 0;
             this.txtcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcode_KeyDown);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Code";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -106,7 +101,7 @@
             // 
             // txtcost
             // 
-            this.txtcost.Location = new System.Drawing.Point(159, 105);
+            this.txtcost.Location = new System.Drawing.Point(445, 112);
             this.txtcost.Name = "txtcost";
             this.txtcost.ReadOnly = true;
             this.txtcost.Size = new System.Drawing.Size(53, 22);
@@ -115,7 +110,7 @@
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(88, 105);
+            this.txtid.Location = new System.Drawing.Point(392, 112);
             this.txtid.Name = "txtid";
             this.txtid.ReadOnly = true;
             this.txtid.Size = new System.Drawing.Size(47, 22);
@@ -126,11 +121,11 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(79, 162);
+            this.dataGridView1.Location = new System.Drawing.Point(79, 153);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(598, 207);
+            this.dataGridView1.Size = new System.Drawing.Size(598, 306);
             this.dataGridView1.TabIndex = 3;
             // 
             // txtname
@@ -143,7 +138,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(464, 395);
+            this.btnSave.Location = new System.Drawing.Point(464, 507);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(213, 43);
             this.btnSave.TabIndex = 4;
@@ -179,11 +174,56 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(85, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Code";
+            // 
+            // txtcmob
+            // 
+            this.txtcmob.Location = new System.Drawing.Point(314, 517);
+            this.txtcmob.Name = "txtcmob";
+            this.txtcmob.Size = new System.Drawing.Size(113, 22);
+            this.txtcmob.TabIndex = 8;
+            this.txtcmob.Text = "NaN";
+            // 
+            // txtdiscode
+            // 
+            this.txtdiscode.Location = new System.Drawing.Point(166, 517);
+            this.txtdiscode.Name = "txtdiscode";
+            this.txtdiscode.Size = new System.Drawing.Size(113, 22);
+            this.txtdiscode.TabIndex = 8;
+            this.txtdiscode.Text = "NaN";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(163, 494);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Discount Code";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(311, 494);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Customer mobile";
+            // 
             // sale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 562);
+            this.Controls.Add(this.txtdiscode);
+            this.Controls.Add(this.txtcmob);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.lblTotalAmount);
@@ -192,6 +232,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtcode);
             this.Controls.Add(this.txtqtty);
             this.Controls.Add(this.txtid);
@@ -212,7 +254,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox txtqtty;
         private System.Windows.Forms.TextBox txtcode;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtcost;
@@ -223,5 +264,10 @@
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Button btnback;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtcmob;
+        private System.Windows.Forms.TextBox txtdiscode;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

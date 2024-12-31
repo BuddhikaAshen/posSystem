@@ -30,10 +30,17 @@ namespace posSystem
             try
             {
                 conn.Open();
-                String query = $"INSERT INTO [user](name,password,role) VALUES('{uname}','{pass}','user')";
+                String query = $"INSERT INTO [user](name,password,role,mail,tp) VALUES('{uname}','{pass}','user','{txtmail.Text}','{txtcontact.Text}')";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 int r = cmd.ExecuteNonQuery();
-                if (r == 1) MessageBox.Show("User registered Successfully");
+                if (r == 1)
+                {
+                    MessageBox.Show("User registered Successfully");
+                    txtuname.Text = "";
+                    txtpass.Text = "";
+                    txtmail.Text = "";
+                    txtcontact.Text = "";
+                }
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

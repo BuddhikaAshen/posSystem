@@ -69,6 +69,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -102,11 +103,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="authentication.cs" />
+    <Compile Include="customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customer.Designer.cs">
+      <DependentUpon>customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="discount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="discount.Designer.cs">
+      <DependentUpon>discount.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -146,8 +159,20 @@
     <Compile Include="stock.Designer.cs">
       <DependentUpon>stock.cs</DependentUpon>
     </Compile>
+    <Compile Include="supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="supplier.Designer.cs">
+      <DependentUpon>supplier.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="customer.resx">
+      <DependentUpon>customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="discount.resx">
+      <DependentUpon>discount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -175,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="stock.resx">
       <DependentUpon>stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supplier.resx">
+      <DependentUpon>supplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

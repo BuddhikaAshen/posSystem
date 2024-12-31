@@ -59,8 +59,9 @@ namespace posSystem
         {
             String datef = dateTimePicker2.Text;
             String datet = dateTimePicker1.Text;
-            String query = $"SELECT * FROM [bill] WHERE date BETWEEN '{datef}' AND '{datet}'";
+            //String query = $"SELECT * FROM [bill] WHERE date BETWEEN '{datef}' AND '{datet}'";
             //String query = "SELECT * FROM bill WHERE date BETWEEN '2024-12-25' AND '2024-12-26'";
+            String query = $"select b.bid AS Bill_No,b.emp AS Cashier,b.total AS Total,b.profit AS Profit,b.date AS Date,d.code AS Discount from bill AS b INNER JOIN discount AS d ON disid=id WHERE date BETWEEN '{datef}' AND '{datet}'";
             SqlConnection conn = authentication.connect();
             double t = 0;
             double p = 0;
