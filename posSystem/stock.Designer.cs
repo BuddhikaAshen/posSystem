@@ -249,6 +249,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Name = "stock";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "stock";
             this.Load += new System.EventHandler(this.stock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

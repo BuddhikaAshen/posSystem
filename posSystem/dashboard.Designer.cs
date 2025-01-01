@@ -186,6 +186,7 @@
             this.Controls.Add(this.reg);
             this.Controls.Add(this.check);
             this.Name = "dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "dashboard";
             this.Load += new System.EventHandler(this.dashboard_Load);
             this.ResumeLayout(false);

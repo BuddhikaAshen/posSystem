@@ -112,7 +112,8 @@ namespace posSystem
         private void loaddata()
         {
             SqlConnection conn = authentication.connect();
-            String query = $"select s.sid AS Stock_Id,i.name AS Name, s.qtty AS Quantity, s.cost AS Cost, s.retail AS Reatail from [stock] as s INNER JOIN [item] AS i ON s.iid=i.id order by (s.sid) desc;";
+            //String query = $"select s.sid AS Stock_Id,i.name AS Name, s.qtty AS Quantity, s.cost AS Cost, s.retail AS Reatail from [stock] as s INNER JOIN [item] AS i ON s.iid=i.id order by (s.sid) desc;";
+            String query = "SELECT * FROM vw_StockItemDetails ORDER BY Stock_Id DESC";
             try
             {
                 conn.Open();

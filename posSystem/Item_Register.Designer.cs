@@ -238,6 +238,7 @@
             this.Controls.Add(this.txtaddcat);
             this.Controls.Add(this.label1);
             this.Name = "Item_Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item_Register";
             this.Load += new System.EventHandler(this.Item_Register_Load);
             this.ResumeLayout(false);

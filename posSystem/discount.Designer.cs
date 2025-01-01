@@ -221,6 +221,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Name = "discount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "discount";
             this.Load += new System.EventHandler(this.discount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

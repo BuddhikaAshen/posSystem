@@ -151,6 +151,7 @@
             this.Controls.Add(this.lbloutprof);
             this.Controls.Add(this.lbloutinc);
             this.Name = "report";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "report";
             this.Load += new System.EventHandler(this.report_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -43,7 +43,8 @@ namespace posSystem
         private void FetchItemName(String c)
         {
             String code = c;
-            String q = $"SELECT i.name,i.id,s.cost,s.retail FROM [item] AS i INNER JOIN stock AS s ON i.id=s.iid WHERE (i.code = '{code}' AND s.qtty > 0)";
+            //String q = $"SELECT i.name,i.id,s.cost,s.retail FROM [item] AS i INNER JOIN stock AS s ON i.id=s.iid WHERE (i.code = '{code}' AND s.qtty > 0)";
+            String q = $"SELECT name, id, cost, retail FROM vw_ItemStockDetails WHERE code = '{code}'";
             SqlConnection conn = authentication.connect();
             try
             {

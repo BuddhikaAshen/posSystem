@@ -185,7 +185,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(16, 338);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 20);
+            this.label7.Size = new System.Drawing.Size(57, 16);
             this.label7.TabIndex = 1;
             this.label7.Text = "Supplier";
             // 
@@ -265,6 +265,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Name = "supplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "supplier";
             this.Load += new System.EventHandler(this.supplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

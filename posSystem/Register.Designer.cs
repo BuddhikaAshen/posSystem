@@ -97,7 +97,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(237, 140);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 20);
+            this.label3.Size = new System.Drawing.Size(41, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Email";
             // 
@@ -106,7 +106,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(237, 168);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Contact";
             // 
@@ -140,6 +140,7 @@
             this.Controls.Add(this.txtuname);
             this.Controls.Add(this.label1);
             this.Name = "Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();
