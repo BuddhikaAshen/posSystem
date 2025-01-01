@@ -59,47 +59,50 @@ namespace posSystem
         {
             String datef = dateTimePicker2.Text;
             String datet = dateTimePicker1.Text;
-            //String query = $"SELECT * FROM [bill] WHERE date BETWEEN '{datef}' AND '{datet}'";
-            //String query = "SELECT * FROM bill WHERE date BETWEEN '2024-12-25' AND '2024-12-26'";
-            String query = $"select b.bid AS Bill_No,b.emp AS Cashier,b.total AS Total,b.profit AS Profit,b.date AS Date,d.code AS Discount from bill AS b INNER JOIN discount AS d ON disid=id WHERE date BETWEEN '{datef}' AND '{datet}'";
+
             SqlConnection conn = authentication.connect();
             double t = 0;
             double p = 0;
+
             try
             {
                 conn.Open();
+
+                // Define the query to call the UDF
+                String query = $@"
+            SELECT * 
+            FROM dbo.GetBillDetailsAndTotal(@startDate, @endDate);";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@startDate", datef);
+                cmd.Parameters.AddWithValue("@endDate", datet);
+
+                // Use SqlDataAdapter to fill the DataGridView
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
 
+                // Calculate the totals using SqlDataReader
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    t += Convert.ToDouble(reader["total"]); 
-                    p += Convert.ToDouble(reader["profit"]);
+                    t += Convert.ToDouble(reader["Total"]);
+                    p += Convert.ToDouble(reader["Profit"]);
                 }
 
-                lblincnew.Text = $"Income: {Convert.ToString(t)}";
-                lblprofnew.Text = $"Profit: {Convert.ToString(p)}";
-
-                
-
-
+                lblincnew.Text = $"Income: {t}";
+                lblprofnew.Text = $"Profit: {p}";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }finally
+            }
+            finally
             {
                 conn.Close();
             }
-            
-            
-            
-
-
         }
+
     }
 }

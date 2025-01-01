@@ -16,7 +16,7 @@ namespace posSystem
 
         public static SqlConnection connect()
         {
-            string connString = "Data Source=(local);Initial Catalog=pos;Integrated Security=True;Encrypt=False";
+            string connString = "Data Source=(local);Initial Catalog=posdb;Integrated Security=True;Encrypt=False";
             return new SqlConnection(connString);
         }
     }

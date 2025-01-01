@@ -24,7 +24,7 @@ namespace posSystem
             String uname = txtuname.Text;
             String pass = txtpass.Text;
 
-            string connString = "Data Source=(local);Initial Catalog=pos;Integrated Security=True;Encrypt=False";
+            string connString = "Data Source=(local);Initial Catalog=posdb;Integrated Security=True;Encrypt=False";
             SqlConnection conn = new SqlConnection(connString);
 
             try

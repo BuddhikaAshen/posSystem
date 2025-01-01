@@ -98,24 +98,23 @@ namespace posSystem
             String code = txticode.Text;
             String cat = cbcat.Text;
             String sup = cbsup.Text;
-            double cost = Convert.ToDouble(txticost.Text);
-            double retail = Convert.ToDouble(txticost.Text);
+            
 
             SqlConnection conn = authentication.connect();
             try
             {
                 conn.Open();
                 //String query = $"INSERT INTO [item](code,name,category,cost,retail,sid) VALUES('{code}','{name}','{cat}',{cost},{retail},(select id from [supplier] where name={sup}))";
-                String query = $"INSERT INTO [item](code, name, category, cost, retail, sid) VALUES ('{code}', '{name}', '{cat}', {cost}, {retail}, (SELECT id FROM [supplier] WHERE name = '{sup}'))";
+                String query = $"INSERT INTO [item](code, name, category,sid) VALUES ('{code}', '{name}', '{cat}', (SELECT id FROM [supplier] WHERE name = '{sup}'))";
                 SqlCommand cmd = new SqlCommand(query , conn);
                 int r = cmd.ExecuteNonQuery();
                 if (r == 1)
                 {
                     MessageBox.Show("Item Registerd Success!");
                     txticode.Text = "";
-                    txticost.Text = "";
+                   
                     txtiname.Text = "";
-                    txtiret.Text = "";
+                    
 
                 }
 

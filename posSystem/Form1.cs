@@ -37,7 +37,7 @@ namespace posSystem
             String pass = password.Text;
             String role = "";
 
-            string connString = "Data Source=(local);Initial Catalog=pos;Integrated Security=True;Encrypt=False";
+            string connString = "Data Source=(local);Initial Catalog=posdb;Integrated Security=True;Encrypt=False";
             SqlConnection conn = new SqlConnection(connString);
 
             String query = $"SELECT * FROM [user] WHERE name='{name}' AND password='{pass}'";

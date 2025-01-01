@@ -34,7 +34,7 @@ namespace posSystem
                 String query = $"INSERT INTO [stock](iid,cost,retail,qtty) VALUES({iid},{cost},{ret},{qtty})";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 int r = cmd.ExecuteNonQuery();
-                if(r==1)
+                if(r>1)
                 {
                     txtsid.Text = "";
                     txtscode.Text = "";

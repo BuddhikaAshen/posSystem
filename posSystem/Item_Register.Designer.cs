@@ -35,11 +35,7 @@
             this.btnaddcat = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txticode = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txticost = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtiret = new System.Windows.Forms.TextBox();
             this.cbcat = new System.Windows.Forms.ComboBox();
             this.btniadd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -107,58 +103,26 @@
             this.txticode.Size = new System.Drawing.Size(100, 22);
             this.txticode.TabIndex = 1;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(427, 190);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Cost Price";
-            // 
-            // txticost
-            // 
-            this.txticost.Location = new System.Drawing.Point(519, 187);
-            this.txticost.Name = "txticost";
-            this.txticost.Size = new System.Drawing.Size(100, 22);
-            this.txticost.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(427, 222);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 16);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Retail Price";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(427, 254);
+            this.label2.Location = new System.Drawing.Point(427, 195);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Category";
             // 
-            // txtiret
-            // 
-            this.txtiret.Location = new System.Drawing.Point(519, 219);
-            this.txtiret.Name = "txtiret";
-            this.txtiret.Size = new System.Drawing.Size(100, 22);
-            this.txtiret.TabIndex = 3;
-            // 
             // cbcat
             // 
             this.cbcat.FormattingEnabled = true;
-            this.cbcat.Location = new System.Drawing.Point(519, 251);
+            this.cbcat.Location = new System.Drawing.Point(519, 192);
             this.cbcat.Name = "cbcat";
             this.cbcat.Size = new System.Drawing.Size(100, 24);
             this.cbcat.TabIndex = 4;
             // 
             // btniadd
             // 
-            this.btniadd.Location = new System.Drawing.Point(473, 330);
+            this.btniadd.Location = new System.Drawing.Point(461, 275);
             this.btniadd.Name = "btniadd";
             this.btniadd.Size = new System.Drawing.Size(132, 39);
             this.btniadd.TabIndex = 5;
@@ -189,7 +153,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(427, 286);
+            this.label8.Location = new System.Drawing.Point(427, 227);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 16);
             this.label8.TabIndex = 0;
@@ -198,7 +162,7 @@
             // cbsup
             // 
             this.cbsup.FormattingEnabled = true;
-            this.cbsup.Location = new System.Drawing.Point(519, 283);
+            this.cbsup.Location = new System.Drawing.Point(519, 224);
             this.cbsup.Name = "cbsup";
             this.cbsup.Size = new System.Drawing.Size(100, 24);
             this.cbsup.TabIndex = 4;
@@ -225,12 +189,8 @@
             this.Controls.Add(this.cbsup);
             this.Controls.Add(this.cbcat);
             this.Controls.Add(this.btnaddcat);
-            this.Controls.Add(this.txtiret);
-            this.Controls.Add(this.txticost);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txticode);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtiname);
@@ -255,11 +215,7 @@
         private System.Windows.Forms.Button btnaddcat;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txticode;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txticost;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtiret;
         private System.Windows.Forms.ComboBox cbcat;
         private System.Windows.Forms.Button btniadd;
         private System.Windows.Forms.Label label6;
