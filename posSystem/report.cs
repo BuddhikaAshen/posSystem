@@ -21,6 +21,7 @@ namespace posSystem
 
         private void report_Load(object sender, EventArgs e)
         {
+            load();
             SqlConnection conn = authentication.connect();
             String query = "SELECT * FROM [bill] WHERE date=CAST(GETDATE() AS DATE)";
             double tot = 0;
@@ -28,21 +29,27 @@ namespace posSystem
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
+                // Use the stored procedure instead of a raw query
+                SqlCommand cmd = new SqlCommand("GetTodaysBills", conn)
+                {
+                    CommandType = CommandType.StoredProcedure // Specify it's a stored procedure
+                };
+
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     tot += Convert.ToDouble(reader["total"]);
                     prof += Convert.ToDouble(reader["profit"]);
                 }
+
                 lbloutinc.Text = $"Today income : Rs.{Convert.ToString(tot)}";
                 lbloutprof.Text = $"Today profit : Rs.{Convert.ToString(prof)}";
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }finally
+            }
+            finally
             {
                 conn.Close();
             }
@@ -54,7 +61,30 @@ namespace posSystem
             this.Close();
             d.Show();
         }
+        private void load()
+        {
+            SqlConnection conn = authentication.connect();
+            String query = $"SELECT * FROM vw_PaymentDetails";
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView2.DataSource = dt;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
         private void btnsrch_Click(object sender, EventArgs e)
         {
             String datef = dateTimePicker2.Text;

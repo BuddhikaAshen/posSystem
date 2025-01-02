@@ -41,7 +41,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(324, 55);
+            this.label1.Location = new System.Drawing.Point(360, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // txttp
             // 
-            this.txttp.Location = new System.Drawing.Point(466, 53);
+            this.txttp.Location = new System.Drawing.Point(502, 53);
             this.txttp.Name = "txttp";
             this.txttp.Size = new System.Drawing.Size(165, 22);
             this.txttp.TabIndex = 2;
@@ -72,9 +72,9 @@
             // 
             // btnreg
             // 
-            this.btnreg.Location = new System.Drawing.Point(291, 115);
+            this.btnreg.Location = new System.Drawing.Point(74, 97);
             this.btnreg.Name = "btnreg";
-            this.btnreg.Size = new System.Drawing.Size(75, 23);
+            this.btnreg.Size = new System.Drawing.Size(617, 32);
             this.btnreg.TabIndex = 3;
             this.btnreg.Text = "Register";
             this.btnreg.UseVisualStyleBackColor = true;

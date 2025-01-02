@@ -165,6 +165,12 @@
     <Compile Include="supplier.Designer.cs">
       <DependentUpon>supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="tip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tip.Designer.cs">
+      <DependentUpon>tip.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="customer.resx">
       <DependentUpon>customer.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="supplier.resx">
       <DependentUpon>supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tip.resx">
+      <DependentUpon>tip.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

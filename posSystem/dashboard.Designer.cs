@@ -40,6 +40,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnsup = new System.Windows.Forms.Button();
             this.btndis = new System.Windows.Forms.Button();
+            this.btntip = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // check
@@ -168,11 +169,22 @@
             this.btndis.UseVisualStyleBackColor = true;
             this.btndis.Click += new System.EventHandler(this.btndis_Click);
             // 
+            // btntip
+            // 
+            this.btntip.Location = new System.Drawing.Point(421, 177);
+            this.btntip.Name = "btntip";
+            this.btntip.Size = new System.Drawing.Size(81, 45);
+            this.btntip.TabIndex = 8;
+            this.btntip.Text = "Cashier Tips";
+            this.btntip.UseVisualStyleBackColor = true;
+            this.btntip.Click += new System.EventHandler(this.btntip_Click);
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 360);
+            this.Controls.Add(this.btntip);
             this.Controls.Add(this.btndis);
             this.Controls.Add(this.btnsup);
             this.Controls.Add(this.button1);
@@ -208,5 +220,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnsup;
         private System.Windows.Forms.Button btndis;
+        private System.Windows.Forms.Button btntip;
     }
 }

@@ -50,21 +50,25 @@ namespace posSystem
         private void loaddata()
         {
             SqlConnection conn = authentication.connect();
-            String query = "SELECT * FROM [customer]";
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
+                // Use the stored procedure instead of a raw query
+                SqlCommand cmd = new SqlCommand("GetAllCustomers", conn)
+                {
+                    CommandType = CommandType.StoredProcedure // Specify it's a stored procedure
+                };
+
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
-                adapter.Fill( dt );
-                dataGridView1.DataSource = dt;
-
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt; // Bind data to the DataGridView
             }
             catch (Exception ex)
             {
-                MessageBox.Show (ex.Message);
-            }finally
+                MessageBox.Show(ex.Message);
+            }
+            finally
             {
                 conn.Close();
             }
