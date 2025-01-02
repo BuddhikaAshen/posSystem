@@ -21,65 +21,65 @@ namespace posSystem
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public static class DatabaseHelper
         {
-            
-        }
+            public static bool ValidateUser(string username, string password, out string role)
+            {
+                role = "";
+                string connString = "Data Source=(local);Initial Catalog=posdb;Integrated Security=True;Encrypt=False";
+                string query = $"SELECT * FROM [user] WHERE name=@username AND password=@password";
 
-        private void login_Load(object sender, EventArgs e)
-        {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connString))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@username", username);
+                            cmd.Parameters.AddWithValue("@password", password);
 
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.HasRows && reader.Read())
+                                {
+                                    role = reader["role"].ToString();
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                return false;
+            }
         }
 
         private void submit_Click(object sender, EventArgs e)
         {
             String name = uname.Text;
             String pass = password.Text;
-            String role = "";
+            String role;
 
-            string connString = "Data Source=(local);Initial Catalog=posdb;Integrated Security=True;Encrypt=False";
-            SqlConnection conn = new SqlConnection(connString);
-
-            String query = $"SELECT * FROM [user] WHERE name='{name}' AND password='{pass}'";
-            
-            
-            try
+            if (DatabaseHelper.ValidateUser(name, pass, out role))
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                if(reader.HasRows && reader.Read())
-                {
-                    role = reader["role"].ToString();
-                    
-                    authentication.IsLoggedIn = true;
-                    authentication.UserRole = role;
-                    authentication.UserName = name;
-                    dashboard d = new dashboard();
-                    d.Show();
-                    this.Hide();
-                    
-                }
-                else
-                {
-                    MessageBox.Show("User Doesnt Exist");
-                }
-                
+                authentication.IsLoggedIn = true;
+                authentication.UserRole = role;
+                authentication.UserName = name;
 
-
+                dashboard d = new dashboard();
+                d.Show();
+                this.Hide();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);             
+                MessageBox.Show("User Doesnt Exist");
             }
-            finally
-            {
-            conn.Close(); 
-            }
-
-
-
-
         }
+
     }
 }

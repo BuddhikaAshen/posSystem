@@ -43,7 +43,7 @@
             this.uname.Name = "uname";
             this.uname.Size = new System.Drawing.Size(198, 22);
             this.uname.TabIndex = 0;
-            this.uname.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // contextMenuStrip1
             // 
@@ -99,7 +99,7 @@
             this.Name = "login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.login_Load);
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 
