@@ -26,7 +26,8 @@ namespace posSystem
                 btnsup.Visible = false;
                 item.Visible = false;
                 stock.Visible = false;
-                
+                btntip.Visible = false;
+
 
             }
 
@@ -131,6 +132,13 @@ namespace posSystem
             discount.Show();
             this.Hide();
 
+        }
+
+        private void btntip_Click(object sender, EventArgs e)
+        {
+            tip tip = new tip();
+            tip.Show();
+            this.Hide();
         }
     }
 }

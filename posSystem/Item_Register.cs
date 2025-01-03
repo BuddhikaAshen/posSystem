@@ -33,6 +33,7 @@ namespace posSystem
                 SqlCommand cmd = new SqlCommand(query, conn);
                 int r = cmd.ExecuteNonQuery();
                 cbcat.Items.Clear();
+                cbsup.Items.Clear();
                 loaddropdown();
                 if (r == 1) MessageBox.Show("category registered success!");
                 txtaddcat.Text = "";

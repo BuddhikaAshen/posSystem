@@ -144,7 +144,8 @@ namespace posSystem
         private void button2_Click(object sender, EventArgs e)
         {
             SqlConnection conn = authentication.connect();
-            String query = $"select s.sid AS Stock_Id,i.name AS Name, s.qtty AS Quantity, s.cost AS Cost, s.retail AS Reatail from [stock] as s INNER JOIN [item] AS i ON s.iid=i.id where (s.qtty >0 and i.code='{txticodesrch.Text}')";
+            // String query = $"select s.sid AS Stock_Id,i.name AS Name, s.qtty AS Quantity, s.cost AS Cost, s.retail AS Retail from [stock] as s INNER JOIN [item] AS i ON s.iid=i.id where (s.qtty >0 and i.code='{txticodesrch.Text}')";
+            String query = $"SELECT * FROM vw_ItemStockDetails where code='{txticodesrch.Text}'";
             try
             {
                 conn.Open();
