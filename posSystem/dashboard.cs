@@ -8,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.Cmp;
+
 
 
 namespace posSystem
