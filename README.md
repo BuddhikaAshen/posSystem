@@ -43,8 +43,7 @@ This is a **Point of Sale (POS) System** developed in **C#** as part of the 2nd 
 ## 🛠️ Technologies Used
 🔹 **C# (.NET Framework / .NET Core)**
 🔹 **MS SQL Server**
-🔹 **Entity Framework** *(if applicable)*
-🔹 **Windows Forms / WPF** *(if applicable)*
+🔹 **Windows Forms / WPF** 
 
 ## 🌟 Future Enhancements
 💳 Integrate **payment gateways**.
